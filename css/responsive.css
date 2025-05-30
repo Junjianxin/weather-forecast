@@ -1,0 +1,289 @@
+/* 桌面布局（默认） */
+@media screen and (min-width: 1024px) {
+    .weather-app {
+        padding: var(--spacing-xl);
+    }
+    
+    /* 桌面端的三栏布局 */
+    .desktop-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .temperature {
+        font-size: var(--font-size-temp);
+    }
+    
+    header {
+        gap: var(--spacing-xl);
+    }
+}
+
+/* 平板布局 */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+    .weather-app {
+        padding: var(--spacing-lg);
+    }
+    
+    .temperature {
+        font-size: calc(var(--font-size-temp) * 0.9);
+    }
+    
+    .life-indices {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    header {
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+    
+    .search-wrapper {
+        flex: 1 1 100%;
+        flex-wrap: wrap;
+    }
+    
+    .search-box {
+        flex: 1 1 300px;
+    }
+    
+    .unit-toggle {
+        flex: 0 0 auto;
+        min-width: 180px;
+    }
+    
+    .right-section {
+        flex: 1 1 300px;
+    }
+    
+    /* 平板布局下历史记录的样式调整 */
+    .city-history {
+        grid-template-columns: repeat(3, 1fr);
+        max-height: 85px; /* 确保能显示两行 */
+    }
+}
+
+/* 手机布局 */
+@media screen and (max-width: 767px) {
+    .weather-app {
+        padding: var(--spacing-md);
+    }
+    
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md);
+    }
+    
+    .search-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: none;
+        flex: none;
+    }
+    
+    .unit-toggle {
+        align-self: stretch;
+        margin: var(--spacing-sm) 0;
+    }
+    
+    .unit-buttons {
+        flex-direction: row;
+    }
+    
+    .unit-buttons button {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .right-section {
+        width: 100%;
+        align-items: stretch;
+        flex: none;
+    }
+    
+    .history-section {
+        max-width: none;
+    }
+    
+    .clear-history-btn {
+        font-size: var(--font-size-xs);
+    }
+    
+    /* 手机布局下历史记录的样式调整 */
+    .city-history {
+        grid-template-columns: repeat(2, 1fr);
+        max-height: 85px; /* 确保能显示两行 */
+    }
+    
+    .temperature {
+        font-size: calc(var(--font-size-temp) * 0.7);
+    }
+    
+    .weather-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .weather-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .details {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+    
+    .detail-item {
+        min-width: auto;
+    }
+    
+    .current-weather {
+        padding: var(--spacing-md);
+    }
+    
+    .tab-btn {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+    
+    .tab-content {
+        padding: var(--spacing-md);
+    }
+    
+    .life-indices {
+        grid-template-columns: 1fr;
+    }
+    
+    .hourly-chart-container {
+        height: 150px;
+    }
+}
+
+/* 小屏幕手机 */
+@media screen and (max-width: 375px) {
+    .temperature {
+        font-size: calc(var(--font-size-temp) * 0.6);
+    }
+    
+    .details {
+        gap: var(--spacing-sm);
+    }
+    
+    .tab-btn {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* 高密度屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .weather-icon svg {
+        width: 120%;
+        height: 120%;
+        transform: scale(0.83);
+        transform-origin: center;
+    }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #f5f7fa;
+        --text-light: #e2e8f0;
+        --text-lighter: #cbd5e1;
+        --background-color: #1e293b;
+        --card-color: #334155;
+        --border-color: #475569;
+        --shadow-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    body:not(.theme-sunny):not(.theme-rainy):not(.theme-night) {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    .search-box input {
+        background-color: rgba(0, 0, 0, 0.2);
+        color: var(--text-color);
+        border-color: var(--border-color);
+    }
+    
+    .search-suggestions {
+        background-color: var(--card-color);
+        color: var(--text-color);
+    }
+    
+    .suggestion-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .error-message {
+        background-color: var(--card-color);
+    }
+    
+    .error-message p {
+        color: var(--text-color);
+    }
+}
+
+/* 横屏模式 */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .weather-app {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    header {
+        grid-column: 1 / -1;
+    }
+    
+    main {
+        grid-column: 1;
+        margin-bottom: 0;
+    }
+    
+    .forecast-section {
+        grid-column: 2;
+    }
+    
+    .temperature {
+        font-size: calc(var(--font-size-temp) * 0.6);
+    }
+}
+
+/* 打印样式 */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .weather-app {
+        display: block;
+    }
+    
+    .search-box, .unit-toggle, .loading, .error-message {
+        display: none !important;
+    }
+    
+    .current-weather, .forecast-section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .tab-pane {
+        display: block !important;
+    }
+    
+    .hourly-chart-container {
+        page-break-before: always;
+    }
+} 
