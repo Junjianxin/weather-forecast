@@ -3,7 +3,7 @@
  */
 const CONFIG = {
     // API设置 - 高德地图天气API
-    API_KEY: '5fc4eb2979541adf492f47c5dc13ff1e', // 高德地图Web服务API密钥
+    API_KEY: 'xxxxxx', // 高德地图Web服务API密钥
     
     // 不再使用模拟数据
     USE_MOCK_DATA: false,
